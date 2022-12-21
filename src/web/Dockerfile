@@ -1,16 +1,25 @@
-FROM node:alpine
+ARG NODE_IMAGE=node:10.16
 
-RUN mkdir -p /usr/src/web
-WORKDIR /usr/src/web
+FROM ${NODE_IMAGE} as node-build
+WORKDIR /app
 
-COPY ./src/web/package.json /usr/src/web/
+COPY src/web/package-lock.json .
+COPY src/web/package.json .
+RUN npm install
 
-RUN yarn --network-timeout 100000 install
+COPY src/web .
+RUN npm run build
 
-COPY ./src/web/ /usr/src/web/
+FROM node-build as publish
 
-RUN yarn run build	
+FROM nginx:perl as final
+WORKDIR /app
 
-EXPOSE 8080
+RUN nginx -v
+EXPOSE 31999
 
-ENTRYPOINT ["yarn", "start"]
+COPY --from=publish /app/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY --from=publish /app/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=publish /app/build /app
+
+CMD ["nginx", "-g", "daemon off;"]

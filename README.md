@@ -1,42 +1,42 @@
-# Cool Store - Kubernetes-based polyglot microservices application with Istio service mesh
+# CoolStore Web Application - :ferris_wheel: Kubernetes-based Microservices Application on Service Mesh :sailboat:
 
 ![Travis (.org)](https://travis-ci.org/vietnam-devs/coolstore-microservices.svg?branch=master)
-[![Build Status](https://dev.azure.com/vietnam-devs/coolstore-microservices/_apis/build/status/vietnam-devs.coolstore-microservices)](https://dev.azure.com/vietnam-devs/coolstore-microservices/_build/latest?definitionId=1)
 [![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/vietnam-devs/coolstore-microservices/blob/master/LICENSE)
 [![OpenTracing Badge](https://img.shields.io/badge/OpenTracing-enabled-blue.svg)](http://opentracing.io)
 
-CoolStore is a containerised polyglot microservices application consisting of services based on .NET Core, NodeJS and more running on Service Mesh. It demonstrates how to wire up small microservices into a larger application using microservice architectural principals. Read https://vietnam-devs.github.io for more information about how can we design and implement it.
+```
+ ______     ______     ______     __         ______     ______   ______     ______     ______    
+/\  ___\   /\  __ \   /\  __ \   /\ \       /\  ___\   /\__  _\ /\  __ \   /\  == \   /\  ___\   
+\ \ \____  \ \ \/\ \  \ \ \/\ \  \ \ \____  \ \___  \  \/_/\ \/ \ \ \/\ \  \ \  __<   \ \  __\   
+ \ \_____\  \ \_____\  \ \_____\  \ \_____\  \/\_____\    \ \_\  \ \_____\  \ \_\ \_\  \ \_____\ 
+  \/_____/   \/_____/   \/_____/   \/_____/   \/_____/     \/_/   \/_____/   \/_/ /_/   \/_____/ 
+```
 
-The business domain for internal µservice is inspired from [CoolStore project](https://github.com/jbossdemocentral/coolstore-microservice) by [JBoss Demo Central](https://github.com/jbossdemocentral) and [Red Hat Demo Central](https://gitlab.com/redhatdemocentral). The readme file is inspired from [GoogleCloudPlatform Demo](https://github.com/GoogleCloudPlatform/microservices-demo).
+CoolStore Website is a containerised microservices application consisting of services based on .NET Core, NodeJS and more running on Service Mesh. It demonstrates how to wire up small microservices into a larger application using microservice architectural principals. Read [documentation](https://vietnam-devs.github.io/coolstore-microservices) for more information.
+
+The business domain is inspired from [CoolStore project](https://github.com/jbossdemocentral/coolstore-microservice) by [JBoss Demo Central](https://github.com/jbossdemocentral) and [Red Hat Demo Central](https://gitlab.com/redhatdemocentral).
+
+> Currently, we're working on [practical-dapr project](https://github.com/thangchung/practical-dapr) which uses and leverages [Dapr](https://github.com/dapr/dapr) and [Tye](https://github.com/dotnet/tye) from Microsoft to run  CoolStore website without need Docker, Docker-compose, and Helm chart for running on localhost and deploying to Kubernetes platform. If you are interested in, please come over [that link](https://github.com/thangchung/practical-dapr)!
+
+Check out my [blog](https://medium.com/@thangchung) or say hi on [Twitter](https://twitter.com/thangchung)!
+
+## Try it online
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/vietnam-devs/coolstore-microservices)
+
+> Usage with careful: The project is in development mode so that a lot of things shall change due to .NET Core 3.x upgrading.
 
 ## Public presentation
 
+- [Service Mesh on AKS, the future is now - Microsoft Build event in May 2019](https://mybuild.techcommunity.microsoft.com/sessions/77172?source=TechCommunity)
 - [From Microservices to Service Mesh - DevCafe event in July 2018](https://www.slideshare.net/ThangChung/from-microservices-to-service-mesh-devcafe-event-july-2018)
 - [Service Mesh for Microservices- Vietnam Mobile Day event in June 2018](https://www.slideshare.net/ThangChung/service-mesh-for-microservices-vietnam-mobile-day-june-2017)
 - [Avoid SPOF in Cloud-native Apps - Vietnam Web Summit event in December 2018](https://www.slideshare.net/ThangChung/avoid-single-point-of-failure-in-cloud-native-application)
 
-Check out my [blog](https://medium.com/@thangchung), my [chat](https://spectrum.chat/net-core) or say hi on [Twitter](https://twitter.com/thangchung)!
-
-[Become a sponsor on Patreon](https://www.patreon.com/thangchung)
-
-## Screenshots
-
-<details>
-  <summary>Home page</summary>
-
-![home-page](assets/images/ui-screen-1.PNG?raw=true)
-
-</details>
-
-<details>
-  <summary>Cart page</summary>
-
-![cart-page](assets/images/ui-screen-2.PNG?raw=true)
-
-</details>
-
 # Table of contents
 
+- [Screenshots](https://github.com/vietnam-devs/coolstore-microservices#screenshots)
+- [Business Context](https://github.com/vietnam-devs/coolstore-microservices#business-context)
 - [OS, SDK, library, tooling and prerequisites](https://github.com/vietnam-devs/coolstore-microservices#os-sdk-library-tooling-and-prerequisites)
 - [High level software architecture](https://github.com/vietnam-devs/coolstore-microservices#high-level-software-architecture)
 - [Installation](https://github.com/vietnam-devs/coolstore-microservices#installation)
@@ -48,25 +48,55 @@ Check out my [blog](https://medium.com/@thangchung), my [chat](https://spectrum.
 - [Contributors](https://github.com/vietnam-devs/coolstore-microservices#contributors)
 - [Licence](https://github.com/vietnam-devs/coolstore-microservices#licence)
 
+## Screenshots
+
+### Home page
+
+![home-page](assets/images/ui-screen-1.PNG?raw=true)
+
+### Shopping Cart page
+
+![cart-page](assets/images/ui-screen-2.PNG?raw=true)
+
+## Business Context
+
+### Conceptual Model
+
+![conceptual-model](docs/.vuepress/public/conceptual-model.png?raw=true)
+
+### Event Storming
+
+![es-bc](docs/.vuepress/public/es-bounded-context.png?raw=true)
+
+### Context Map
+
+![es-context-map](docs/.vuepress/public/es-context-map-2.png?raw=true)
+
 ## OS, SDK, library, tooling and prerequisites
 
-- **`Windows 10`** - the OS for developing and building this demo application .
-- **[`Windows subsystem Linux - Ubuntu OS`](https://docs.microsoft.com/en-us/windows/wsl/install-win10)** - the subsystem that helps to run easily the bash shell on Windows OS
-- **[`Docker for desktop (Kubernetes enabled)`](https://www.docker.com/products/docker-desktop)** - the easiest tool to run Docker, Docker Swarm and Kubernetes on Mac and Windows
-- **[`Kubernetes`](https://kubernetes.io) / [`AKS`](https://docs.microsoft.com/en-us/azure/aks)** - the app is designed to run on Kubernetes (both locally on "Docker for Desktop", as well as on the cloud with AKS)
-- **[`istio`](https://istio.io)** - application works on Istio service mesh
-- **[`helm`](https://helm.sh)** - the best package manager to find, share, and use software built for Kubernetes
-- **[`envoy-proxy`](https://www.envoyproxy.io/)** - open source edge and service proxy, designed for cloud-native applications
-- **[`.NET Core SDK 2.x`](https://dotnet.microsoft.com/download)** - .NET Framework and .NET Core, including ASP.NET and ASP.NET Core
-- **[`nodejs 10.x`](https://nodejs.org/en/download)** - JavaScript runtime built on Chrome's V8 JavaScript engine
-- **[`typescript`](https://www.typescriptlang.org)** - a typed superset of JavaScript that compiles to plain JavaScript
-- **[`identityserver`](https://identityserver.io)** - the Identity and Access Control solution for .NET Core
-- **[`gRPC`](https://grpc.io)** - a high-performance, open-source universal RPC framework
-- **[`create-react-app`](https://facebook.github.io/create-react-app)** - a modern web app by running one command
-- **[`vue-cli`](https://cli.vuejs.org/)** - standard tooling for Vue.js development
-- **[`apollo-client`](https://www.apollographql.com/docs/react/)** - the best way to use GraphQL to build client applications
-- **[`tanka-graphql`](https://pekkah.github.io/tanka-graphql)** - GraphQL execution library with SignalR based server and ApolloLink implementation
-- **[`netcorekit`](https://github.com/cloudnative-netcore/netcore-kit)** - a crafted microservices toolkit for building cloud-native apps on the .NET platform
+### Infrastructure
+
+- **`Windows 10`** - the OS for developing and building this demo application.
+- **[`Windows subsystem Linux - Ubuntu OS`](https://docs.microsoft.com/en-us/windows/wsl/install-win10)** - the subsystem that helps to run easily the bash shell on Windows OS.
+- **[`Docker for desktop (Kubernetes enabled)`](https://www.docker.com/products/docker-desktop)** - the easiest tool to run Docker, Docker Swarm and Kubernetes on Mac and Windows.
+- **[`Kubernetes`](https://kubernetes.io) / [`AKS`](https://docs.microsoft.com/en-us/azure/aks)** - the app is designed to run on Kubernetes (both locally on "Docker for Desktop", as well as on the cloud with AKS).
+- **[`helm`](https://helm.sh)** - the best package manager to find, share, and use software built for Kubernetes.
+- **[`istio`](https://istio.io)** - application works on Istio service mesh.
+- **[`linkerd2`](https://github.com/linkerd/linkerd2)** - a service mesh for Kubernetes and beyond.
+  
+### Back-end
+
+- **[`.NET Core 3.x`](https://dotnet.microsoft.com/download)** - .NET Framework and .NET Core, including ASP.NET and ASP.NET Core.
+- **[`IdentityServer4`](https://identityserver.io)** - the Identity and Access Control solution for .NET Core.
+- **[`gRPC`](https://grpc.io)** - a high-performance, open-source universal RPC framework.
+- **[`Redis`](https://github.com/StackExchange/StackExchange.Redis)** - General purpose redis client.
+- **[`NEST`](https://github.com/elastic/elasticsearch-net)** - Elasticsearch.Net & NEST.
+
+### Front-end
+
+- **[`nodejs 10.x`](https://nodejs.org/en/download)** - JavaScript runtime built on Chrome's V8 JavaScript engine.
+- **[`typescript`](https://www.typescriptlang.org)** - a typed superset of JavaScript that compiles to plain JavaScript.
+- **[`create-react-app`](https://facebook.github.io/create-react-app)** - a modern web app by running one command.
 
 ## High level software architecture
 
@@ -233,22 +263,20 @@ There are several individual µservices and infrastructure components that make 
 
 ### Development environment
 
-#### Up and running manually with `Docker for desktop`
-
-See https://vietnam-devs.github.io/docs/development/up-running-d4d-aks/#docker-for-desktop
-
-#### Up and running with `docker compose`
+#### Up and running with `Docker` and `docker compose`
 
 ```bash
-$ docker-compose build
-$ docker-compose up
+$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml build
+$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 ```
+
+See https://vietnam-devs.github.io/coolstore-microservices/development/#up-and-running-with-docker-and-docker-compose
 
 ### Staging and Production environments
 
 #### Up and Running on `Azure Kubernetes Service` (`AKS`)
 
-See https://vietnam-devs.github.io/docs/development/up-running-d4d-aks/#azure-kubernetes-service-aks
+See https://vietnam-devs.github.io/coolstore-microservices/development/#up-and-running-manually-on-docker-for-desktop-and-aks
 
 ## µService development
 
@@ -259,6 +287,8 @@ Guidance for developing µService can be found at [Clean Domain-Driven Design in
 ## Open API
 
 ![OpenAPI Screenshot](assets/images/open-api.png?raw=true 'OpenAPI')
+
+https://documenter.getpostman.com/view/4847807/SVmvUeZv?version=latest#9f5ed7e4-e855-46e5-a42d-64edb31bc1cb
 
 ## CI/CD
 
